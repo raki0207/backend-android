@@ -21,6 +21,16 @@ app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
+app.get("/", (_req, res) => {
+  res.json({
+    ok: true,
+    service: "slv-api",
+    message: "SLV Bakery API is running",
+    health: "/health",
+    api: "/api"
+  });
+});
+
 app.get("/health", (_req, res) => {
   res.json({ ok: true, service: "slv-api" });
 });
