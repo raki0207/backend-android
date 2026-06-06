@@ -138,7 +138,7 @@ function normalizeProductBody(body) {
 }
 
 router.get("/products", async (_req, res) => {
-  const products = await Product.find().sort({ createdAt: -1 }).limit(200);
+  const products = await Product.find().sort({ createdAt: -1 });
   res.json(products);
 });
 
